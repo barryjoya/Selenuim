@@ -1,6 +1,10 @@
 package tests;
 
-public class DataDrivenTesting {
 
+import core.Base;
+
+public class DataDrivenTesting extends Base{
+
+	
 
 }
