@@ -96,7 +96,6 @@ public class Base {
 	 * This method will initialize the webdriver whenever we call it.
 	 */
 	public static void initializeDriver() {
-		
 		if (Base.getBrowserName().equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -124,6 +123,33 @@ public class Base {
 		driver.get(getURL());
 	}
 	
+	public static void initializeDriver(String browser) {
+		if (browser.equalsIgnoreCase("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+		} else if (browser.equalsIgnoreCase("ie")) {
+			WebDriverManager.iedriver().setup();
+			driver = new InternetExplorerDriver();
+
+		} else if (browser.equalsIgnoreCase("ff")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+
+		} else {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+
+		}
+
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(Base.getPageLoadTimeOut(), TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Base.getImpWait(), TimeUnit.SECONDS);
+		
+		
+		
+		driver.get(getURL());
+	}
 	/**
 	 * This method will Close and quite all windows after each execution.
 	 */
