@@ -13,10 +13,4 @@ public class PriorityExample {
   System.out.println(2);
   }
   
-  
-  /// will be back at 8:52PM EST
-  /// will be back at 5:52PM PST
-  
-  
-  
 }
